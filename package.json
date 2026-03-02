@@ -1,0 +1,113 @@
+{
+  "name": "command-buttons",
+  "displayName": "Command Buttons",
+  "description": "Configurable status bar buttons to run shell commands or VSCode tasks",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "commandButtons.reload",
+        "title": "Command Buttons: Reload"
+      }
+    ],
+    "configuration": {
+      "title": "Command Buttons",
+      "properties": {
+        "commandButtons.buttons": {
+          "type": "array",
+          "default": [],
+          "description": "List of command buttons to show in the status bar (overridden by .vscode/command-buttons.json if present)",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for this button"
+              },
+              "label": {
+                "type": "string",
+                "description": "Button label (supports $(icon) syntax)"
+              },
+              "command": {
+                "type": "string",
+                "description": "Shell command to execute (mutually exclusive with 'task')"
+              },
+              "task": {
+                "type": "string",
+                "description": "VSCode task label from tasks.json to execute (mutually exclusive with 'command')"
+              },
+              "tooltip": {
+                "type": "string",
+                "description": "Tooltip shown on hover"
+              },
+              "color": {
+                "type": "string",
+                "description": "Text color (e.g., #ff0000, yellow)"
+              },
+              "runningColor": {
+                "type": "string",
+                "description": "Text color while command is running"
+              },
+              "alignment": {
+                "type": "string",
+                "enum": [
+                  "left",
+                  "right"
+                ],
+                "default": "left",
+                "description": "Status bar alignment"
+              },
+              "priority": {
+                "type": "number",
+                "default": 0,
+                "description": "Position priority (higher = more left)"
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Working directory for shell commands (defaults to workspace root, ignored for tasks)"
+              },
+              "showOutput": {
+                "type": "boolean",
+                "default": true,
+                "description": "Show output in output channel (only for shell commands; tasks use their own terminal)"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.35",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vscode/vsce": "^3.7.1",
+    "eslint": "^8.57.1",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.105.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
