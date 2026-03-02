@@ -1,0 +1,29 @@
+{
+  "buttons": [
+    {
+      "id": "build",
+      "label": "$(tools) Build",
+      "task": "build",
+      "tooltip": "Run the build task",
+      "color": "#4EC9B0",
+      "runningColor": "#DCDCAA",
+      "alignment": "left",
+      "priority": 100
+    },
+    {
+      "id": "test",
+      "label": "$(beaker) Test",
+      "task": "test",
+      "tooltip": "Run tests via task",
+      "color": "#569CD6",
+      "runningColor": "#CE9178"
+    },
+    {
+      "id": "quick-lint",
+      "label": "$(checklist) Lint",
+      "command": "eslint src --fix",
+      "tooltip": "Quick lint with auto-fix",
+      "color": "#C586C0"
+    }
+  ]
+}
