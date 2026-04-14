@@ -2,7 +2,7 @@
   "name": "command-buttons",
   "displayName": "Command Buttons",
   "description": "Configurable status bar buttons to run shell commands or VSCode tasks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Groobz",
   "icon": "images/icon.png",
   "repository": {
