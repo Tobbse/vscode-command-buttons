@@ -2,7 +2,9 @@
   "name": "command-buttons",
   "displayName": "Command Buttons",
   "description": "Configurable status bar buttons to run shell commands or VSCode tasks",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "Groobz",
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Tobbse/vscode-command-buttons"
@@ -10,6 +12,7 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "keywords": ["statusbar", "buttons", "commands", "tasks"],
   "categories": [
     "Other"
   ],
